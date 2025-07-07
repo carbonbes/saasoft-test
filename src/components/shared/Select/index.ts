@@ -3,6 +3,8 @@ export {
   SelectTrigger,
   SelectPortal,
   SelectItemText,
+  SelectValue,
+  SelectIcon,
   type SelectRootProps,
   type SelectRootEmits,
   useForwardPropsEmits,

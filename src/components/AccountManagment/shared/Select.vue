@@ -1,11 +1,24 @@
 <template>
   <SelectRoot v-bind="forwarded">
-    <SelectTrigger>
-      <slot />
+    <SelectTrigger as-child>
+      <BaseForm as-child>
+        <BaseButton class="p-2 flex items-center justify-between gap-1 rounded-xl">
+          <SelectValue placeholder="Выбрать" />
+
+          <SelectIcon>
+            <ITablerChevronDown />
+          </SelectIcon>
+        </BaseButton>
+      </BaseForm>
     </SelectTrigger>
 
     <SelectPortal>
-      <SelectContent position="popper" align="center" :side-offset="5">
+      <SelectContent
+        position="popper"
+        align="center"
+        :side-offset="5"
+        class="w-(--reka-select-trigger-width)"
+      >
         <SelectViewport>
           <SelectItem v-for="(item, index) in props.items" :key="index" :value="item">
             <SelectItemText>{{ item }}</SelectItemText>
@@ -28,9 +41,12 @@ import {
   type SelectRootProps,
   type SelectRootEmits,
   useForwardPropsEmits,
+  SelectIcon,
+  SelectValue,
 } from '@/components/shared/Select'
+import { BaseButton, BaseForm } from '@/components/shared/Base'
 
-export interface SelectProps extends SelectRootProps {
+interface SelectProps extends SelectRootProps {
   items: string[]
 }
 
