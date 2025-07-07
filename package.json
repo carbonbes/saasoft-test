@@ -13,7 +13,6 @@
     "format": "prettier --write src/"
   },
   "dependencies": {
-    "@formkit/vue": "^1.6.9",
     "@tailwindcss/vite": "^4.1.11",
     "pinia": "^3.0.3",
     "reka-ui": "^2.3.2",
