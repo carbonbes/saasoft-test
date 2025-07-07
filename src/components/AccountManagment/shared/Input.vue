@@ -3,7 +3,8 @@
     v-bind="forwarded"
     :value="props.modelValue"
     @input="handleInput"
-    class="p-2 rounded-xl placeholder:text-gray-400 user-invalid:ring-red-500"
+    class="p-2 rounded-xl placeholder:text-gray-400"
+    :class="{ 'ring-red-500': props.error }"
   />
 </template>
 
@@ -17,6 +18,7 @@ export interface InputProps extends BaseFormProps {
   required?: boolean
   maxLength?: number
   modelValue?: string
+  error?: boolean
 }
 
 export interface InputEmits {

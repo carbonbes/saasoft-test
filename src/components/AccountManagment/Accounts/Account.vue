@@ -1,21 +1,16 @@
 <template>
-  <div ref="accountRef" class="grid grid-cols-5 gap-x-4">
-    <Input :max-length="50" />
+  <div class="grid grid-cols-5 gap-x-4">
+    <Input v-model="state.tags" />
 
     <Select
-      required
+      v-model="state.type"
       :items="['Локальная', 'LDAP']"
       :default-value="account.type === 'local' ? 'Локальная' : 'LDAP'"
     />
 
-    <Input required :max-length="100" :class="{ 'col-span-2': account.type === 'ldap' }" />
+    <Input v-model="state.login" :class="{ 'col-span-2': state.type === 'ldap' }" />
 
-    <Input
-      v-show="account.type === 'local'"
-      type="password"
-      :required="account.type === 'local'"
-      :max-length="100"
-    />
+    <Input v-show="account.type === 'local'" v-model="state.password" type="password" />
 
     <BaseButton>
       <ITablerTrash class="text-red-500" />
@@ -24,11 +19,34 @@
 </template>
 
 <script setup lang="ts">
-import { useTemplateRef } from 'vue'
+import { reactive } from 'vue'
 import { Input, Select } from '@/components/AccountManagment/shared'
 import { BaseButton } from '@/components/shared/Base'
 
-const { account } = defineProps<{ account: { type: 'local' | 'ldap' } }>()
+export interface AccountTag {
+  text: string
+}
 
-const accountRef = useTemplateRef('accountRef')
+export interface Account {
+  tags: AccountTag[]
+  type: 'local' | 'ldap'
+  login: string
+  password: string
+}
+
+const { account } = defineProps<{
+  account: Account
+}>()
+
+const getTagsString = () =>
+  Object.values(account.tags)
+    .map((tag) => tag.text)
+    .join('; ')
+
+const state = reactive({
+  tags: getTagsString(),
+  type: account.type,
+  login: account.login,
+  password: account.password,
+})
 </script>

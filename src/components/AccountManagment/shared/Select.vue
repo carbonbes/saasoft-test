@@ -2,7 +2,10 @@
   <SelectRoot v-bind="forwarded">
     <SelectTrigger as-child>
       <BaseForm as-child>
-        <BaseButton class="p-2 flex items-center justify-between gap-1 rounded-xl">
+        <BaseButton
+          class="p-2 flex items-center justify-between gap-1 rounded-xl"
+          :class="{ 'ring-red-500': props.error }"
+        >
           <SelectValue placeholder="Выбрать" />
 
           <SelectIcon>
@@ -48,6 +51,7 @@ import { BaseButton, BaseForm } from '@/components/shared/Base'
 
 interface SelectProps extends SelectRootProps {
   items: string[]
+  error?: boolean
 }
 
 const props = defineProps<SelectProps>()
