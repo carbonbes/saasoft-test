@@ -1,7 +1,7 @@
 <template>
   <Primitive
     v-bind="forwardedProps"
-    class="cursor-pointer disabled:opacity-50 disabled:pointer-events-none"
+    class="cursor-pointer disabled:opacity-50 disabled:pointer-events-none outline-none"
   >
     <slot />
   </Primitive>
