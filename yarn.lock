@@ -707,6 +707,124 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@formkit/core@npm:1.6.9":
+  version: 1.6.9
+  resolution: "@formkit/core@npm:1.6.9"
+  dependencies:
+    "@formkit/utils": "npm:1.6.9"
+  checksum: 10c0/e00d252aec0676322f8c48103376628a79c82b1051a2eec6cb2cf0bcde73ebeab15b9cc4b205c2c4d0c6c731f71f43641c1619992acd35e9de13c05d41e286e9
+  languageName: node
+  linkType: hard
+
+"@formkit/dev@npm:1.6.9":
+  version: 1.6.9
+  resolution: "@formkit/dev@npm:1.6.9"
+  dependencies:
+    "@formkit/core": "npm:1.6.9"
+    "@formkit/utils": "npm:1.6.9"
+  checksum: 10c0/593d437635b83763c2ac4c2a3195257b33ee96014fa5cceabfb1088492cccad9f6cdfb4eb84579a7586889d5ae8d1b80e53b1f648dc4301e402fc1cb1cd55922
+  languageName: node
+  linkType: hard
+
+"@formkit/i18n@npm:1.6.9":
+  version: 1.6.9
+  resolution: "@formkit/i18n@npm:1.6.9"
+  dependencies:
+    "@formkit/core": "npm:1.6.9"
+    "@formkit/utils": "npm:1.6.9"
+    "@formkit/validation": "npm:1.6.9"
+  checksum: 10c0/e409ad1c3d24c33511741a4d5ba4b5fa8a8eaf61bf9832a7c6fa3e5a8f1e204400856e52def6657695d1dddcd7d33a27f67065ce3a85e145ec85bee7d6c94989
+  languageName: node
+  linkType: hard
+
+"@formkit/inputs@npm:1.6.9":
+  version: 1.6.9
+  resolution: "@formkit/inputs@npm:1.6.9"
+  dependencies:
+    "@formkit/core": "npm:1.6.9"
+    "@formkit/utils": "npm:1.6.9"
+  checksum: 10c0/6a03bc23a9e1cbc6dfd23efaee2e70e906e9b8db7217b354abbb393b0c3e33b2eb82688e591e1daaf087763e3d206b951986cddb23ada76daea76daa0715ce83
+  languageName: node
+  linkType: hard
+
+"@formkit/observer@npm:1.6.9":
+  version: 1.6.9
+  resolution: "@formkit/observer@npm:1.6.9"
+  dependencies:
+    "@formkit/core": "npm:1.6.9"
+    "@formkit/utils": "npm:1.6.9"
+  checksum: 10c0/64561a6c55944bb5c1d093b9fc8e4397d2e8b7b295d6e9c5074c5d0b62972add4156f64b3b63a82139c4ed864c8d65f97737c0c29f733e3d6a7504d858cce381
+  languageName: node
+  linkType: hard
+
+"@formkit/rules@npm:1.6.9":
+  version: 1.6.9
+  resolution: "@formkit/rules@npm:1.6.9"
+  dependencies:
+    "@formkit/core": "npm:1.6.9"
+    "@formkit/utils": "npm:1.6.9"
+    "@formkit/validation": "npm:1.6.9"
+  checksum: 10c0/f5bda67cd275a9ed83d2c08e8664283f0089982f674482b6bc9392440b29c017f42686760eb5460fb3c304230493b32c3fee11581dbe4af90bc73001c1abea5e
+  languageName: node
+  linkType: hard
+
+"@formkit/themes@npm:1.6.9":
+  version: 1.6.9
+  resolution: "@formkit/themes@npm:1.6.9"
+  dependencies:
+    "@formkit/core": "npm:1.6.9"
+  peerDependencies:
+    tailwindcss: ^3.2.0
+    unocss: 0.x.x
+    windicss: ^3.0.0
+  peerDependenciesMeta:
+    tailwindcss:
+      optional: true
+    unocss:
+      optional: true
+    windicss:
+      optional: true
+  checksum: 10c0/d9b9151d88940fa87dde6707532e61be47442aace78e9644b0981861092cda3fa15be4318fdaef63e0801e19c37170f71f9db04b8744ba3c99ddfc20d71a0031
+  languageName: node
+  linkType: hard
+
+"@formkit/utils@npm:1.6.9":
+  version: 1.6.9
+  resolution: "@formkit/utils@npm:1.6.9"
+  checksum: 10c0/abc4938b4113cb27a71d8c2dfc34f286ce4781e24bc7e32ccae8c61a1ae1416119bba3947060abc071e0c483702c25dacefe428e046e6e7fa4d7f3948ad3337b
+  languageName: node
+  linkType: hard
+
+"@formkit/validation@npm:1.6.9":
+  version: 1.6.9
+  resolution: "@formkit/validation@npm:1.6.9"
+  dependencies:
+    "@formkit/core": "npm:1.6.9"
+    "@formkit/observer": "npm:1.6.9"
+    "@formkit/utils": "npm:1.6.9"
+  checksum: 10c0/36d3d3975afb0f6a67c5ffb51343e7c9606cebaa142a36b5c92c7ac5ddd1cbac00d220d9c332e14c8873be4fdb96f845a9d01f7b61978f44c455c0fd17c6d01a
+  languageName: node
+  linkType: hard
+
+"@formkit/vue@npm:^1.6.9":
+  version: 1.6.9
+  resolution: "@formkit/vue@npm:1.6.9"
+  dependencies:
+    "@formkit/core": "npm:1.6.9"
+    "@formkit/dev": "npm:1.6.9"
+    "@formkit/i18n": "npm:1.6.9"
+    "@formkit/inputs": "npm:1.6.9"
+    "@formkit/observer": "npm:1.6.9"
+    "@formkit/rules": "npm:1.6.9"
+    "@formkit/themes": "npm:1.6.9"
+    "@formkit/utils": "npm:1.6.9"
+    "@formkit/validation": "npm:1.6.9"
+  peerDependencies:
+    vue: ^3.4.0
+  checksum: 10c0/74ea9a83d52f46c8af6ef37b44915cd5fcbe2a2849b30e536eb6c2d16824ef9f4318f0db56986a1547a6a699cc0cedfd500fcbbbcee6727ec41102a115a8f02d
+  languageName: node
+  linkType: hard
+
 "@humanfs/core@npm:^0.19.1":
   version: 0.19.1
   resolution: "@humanfs/core@npm:0.19.1"
@@ -4131,6 +4249,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "saasoft-test@workspace:."
   dependencies:
+    "@formkit/vue": "npm:^1.6.9"
     "@iconify-json/tabler": "npm:^1.2.19"
     "@tailwindcss/vite": "npm:^4.1.11"
     "@tsconfig/node22": "npm:^22.0.2"
