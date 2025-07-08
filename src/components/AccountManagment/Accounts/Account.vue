@@ -32,12 +32,10 @@
       @blur="handleBlur"
     />
 
-    <BaseButton>
+    <BaseButton @click="remove(account.id)">
       <ITablerTrash class="text-red-500" />
     </BaseButton>
   </div>
-
-  <pre>{{ meta }}</pre>
 </template>
 
 <script setup lang="ts">
@@ -46,30 +44,20 @@ import { Input, Select } from '@/components/AccountManagment/shared'
 import { BaseButton } from '@/components/shared/Base'
 import { useForm } from 'vee-validate'
 import * as yup from 'yup'
-
-export interface AccountTag {
-  text: string
-}
-
-export interface Account {
-  tags: AccountTag[]
-  type: 'local' | 'ldap'
-  login: string
-  password: string | null
-}
+import { type Account, useAccountsStore } from '@/stores/accounts.ts'
 
 const { account } = defineProps<{
   account: Account
 }>()
 
-const emits = defineEmits<{ add: [Account]; remove: [void] }>()
+const { update, remove } = useAccountsStore()
 
 const getTagsString = computed(() => {
   if (!account.tags) return
 
   return Object.values(account.tags)
     .map((tag) => tag.text)
-    .join('; ')
+    .join(';')
 })
 
 const getTagsObj = computed(() => {
@@ -84,13 +72,15 @@ const getTagsObj = computed(() => {
 })
 
 const initialValues = {
+  id: account.id,
   tags: getTagsString.value,
   type: account.type,
   login: account.login,
   password: account.password,
 }
 
-const outputValues = computed(() => ({
+const outputValues = computed<Account>(() => ({
+  id: account.id,
   tags: getTagsObj.value,
   type: type.value,
   login: login.value,
@@ -104,19 +94,29 @@ const validationSchema = yup.object({
   password: yup
     .string()
     .when('type', {
-      is: 'local',
-      then: (schema) => schema.required(),
-      otherwise: (schema) => schema.notRequired(),
+      is: 'ldap',
+      then: (schema) => schema.notRequired(),
+      otherwise: (schema) => schema.required(),
     })
     .max(100),
 })
 
-const { defineField, meta, errors, validate } = useForm({ initialValues, validationSchema })
+const { defineField, meta, values, errors, validate } = useForm({ initialValues, validationSchema })
+
+const handleUpdate = () => {
+  update({ accountId: account.id, account: outputValues.value })
+}
+
+watch(values, () => {
+  if (!meta.value.valid) return
+
+  handleUpdate()
+})
 
 watch(
   () => meta.value.valid,
   (valid) => {
-    if (valid) emits('add', outputValues.value)
+    if (valid) handleUpdate()
   },
 )
 
