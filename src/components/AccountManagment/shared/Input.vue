@@ -4,20 +4,19 @@
     :value="props.modelValue"
     @input="handleInput"
     class="p-2 rounded-xl placeholder:text-gray-400"
-    :class="{ 'ring-red-500': props.error }"
+    :class="{ '!ring-red-500': props.error }"
   />
 </template>
 
 <script setup lang="ts">
 import { BaseForm, type BaseFormProps } from '@/components/shared/Base'
-import { useForwardPropsEmits } from 'reka-ui'
+import { type AcceptableValue, useForwardPropsEmits } from 'reka-ui'
 
 export interface InputProps extends BaseFormProps {
   type?: 'text' | 'password'
   placeholder?: string
-  required?: boolean
   maxLength?: number
-  modelValue?: string
+  modelValue?: AcceptableValue
   error?: boolean
 }
 
